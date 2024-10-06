@@ -266,8 +266,8 @@ body {
 /* Imagen del bot */
 .chatImg-bot {
     object-fit: cover; /* Ajustar la imagen */
-    width: 4rem; /* Tamaño de la imagen */
-    height: 4rem; /* Mantener proporción */
+    width: 6rem; /* Tamaño de la imagen */
+    height: 6rem; /* Mantener proporción */
     margin-right: 1.5rem; /* Espaciado a la derecha */
     border-radius: 50%; /* Imagen circular */
 }
