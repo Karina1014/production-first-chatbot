@@ -6,10 +6,11 @@ function App() {
     <div className="App">
       <div className="sideBar">
         <div className="upperSide">
+        <span className="brand">CHAT AMAGUAÑA</span>
+
           <div className="upperSideTop">
             <img src={logoAmaguana} alt="Logo" className="logo" />
-            <span className="brand">CHAT AMAGUAÑA</span>
-
+            
             <button className="miBtn">Nuevo Chat</button>
             
             <div className="upperSideBottom">
