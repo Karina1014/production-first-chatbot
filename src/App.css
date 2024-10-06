@@ -2,54 +2,140 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
-html{
+
+html {
     font-size: 62.5%;
     font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background:rgbrgb(14, 13, 13);
-    color:rgb(255, 255, 255);
-    font-family: 'Poppins', sans-serif;
+    background: rgb(14, 13, 13);
+    color: rgb(255, 255, 255);
 }
 
-.App{
+.App {
     min-height: 100vh;
     display: flex;
 }
 
-.sideBar{
-    width: 250px; /* Ancho predeterminado de la barra lateral */
-    height: 100vh; /* Altura completa de la ventana del navegador */
+.sideBar {
+    width: 250px; /* Ancho de la barra lateral */
+    height: 100vh; /* Altura completa */
     background: #1e3d59; /* Color de fondo */
     padding: 30px 10px; /* Espaciado interno */
-    position: fixed; /* Fijo para mantenerse en el lado izquierdo */
+    position: fixed; /* Fijo en el lado izquierdo */
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Permite el desplazamiento si el contenido excede la altura */
-    transition: width 0.3s ease; /* Transición suave para el cambio de ancho */
+    overflow-y: auto; /* Desplazamiento si el contenido excede la altura */
 }
 
-.main{
-    flex: 9;
+.main {
+    flex: 1; /* Ocupa el espacio restante */
+    margin-left: 250px; /* Espacio para la barra lateral */
+    padding: 2rem; /* Espaciado en el área principal */
 }
 
-/* Estilo para la imagen del logo */
-.sidebar-controls {
-    margin-bottom: 10px; /* Ajusta el margen según sea necesario */
-  }
-  
 .logo {
     width: 100%; /* Asegura que el logo se ajuste al ancho del sidebar */
     max-width: 250px; /* Tamaño máximo del logo */
     height: auto;
-  }
-  
+    margin-bottom: 20px; /* Espacio debajo del logo */
+}
 
-.brand{
+.brand {
     font-size: 2rem;
+    text-align: center; /* Centrar texto */
+    margin-bottom: 2rem; /* Espacio debajo del título */
+}
+
+.upperSide {
+    padding: 2.5rem;
+    border-bottom: 1px solid rgb(100, 100, 100); /* Línea de separación */
+}
+
+.upperSideTop {
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    margin-bottom: 2.5rem;
+}
+
+.miBtn {
+    background: #0791BE; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    display: flex; /* Usar flex para alinear ícono y texto */
+    align-items: center; /* Centrar verticalmente */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.miBtn:hover {
+    background-color: #FFA500; /* Color de fondo al pasar el ratón */
+}
+
+.miBtn img {
+   height: 2rem;
+   padding-right: 1rem;
+   font-size: 1.5rem;
+   width: 25rem;
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0 auto;
+   margin-bottom: 3rem;
+   border-radius: 0.5rem;
+}
+
+.upperSideBottom {
+    margin-top: 1rem; /* Espacio superior */
+}
+
+.query {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding: 5rem;
+    width: 25rem;
+    margin: 1rem auto;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(255,255,255);
+    color:rgb(255, 255, 255);
+}
+
+.query:hover {
+    background-color: #0791BE; /* Color de fondo al pasar el ratón */
+}
+
+.lowerside {
+    margin-top: auto; /* Empuja esta sección hacia abajo */
+}
+
+.socialNetworks {
+    display: flex;
+    justify-content: center; /* Centrar íconos */
+    margin-top: 2rem; /* Espacio encima de los íconos */
+}
+
+.socialNetworks a {
+    display: flex; /* Cambiado a flex para centrar el ícono */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    width: 40px; /* Ancho fijo */
+    height: 40px; /* Altura fija */
+    color: rgb(255, 255, 255); /* Color del ícono */
+    background: #FFA500; /* Color de fondo de los íconos de redes sociales */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0 5px; /* Espaciado entre los iconos */
+}
+
+.socialNetworks a:hover {
+    background: #0791BE; /* Color de fondo al pasar el ratón */
+    color: #FFA500; /* Color del ícono al pasar el ratón */
 }
