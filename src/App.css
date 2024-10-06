@@ -5,30 +5,30 @@
 }
 
 html {
-    font-size: 62.5%;
-    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%; /* Tamaño de fuente base para rem */
+    font-family: 'Poppins', sans-serif; /* Tipo de fuente */
 }
 
 body {
-    background: rgb(14, 13, 13);
-    color: rgb(255, 255, 255);
+    background: rgb(14, 13, 13); /* Color de fondo de la página */
+    color: rgb(255, 255, 255); /* Color del texto */
 }
 
 .App {
-    min-height: 100vh;
-    display: flex;
+    min-height: 100vh; /* Altura mínima */
+    display: flex; /* Flexbox para distribuir los elementos */
 }
 
 .sideBar {
     width: 250px; /* Ancho de la barra lateral */
     height: 100vh; /* Altura completa */
     background: #1e3d59; /* Color de fondo */
-    padding: 30px 10px; /* Espaciado interno */
+    padding: 30px 15px; /* Espaciado interno ajustado */
     position: fixed; /* Fijo en el lado izquierdo */
     top: 0;
     left: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Disposición vertical */
     overflow-y: auto; /* Desplazamiento si el contenido excede la altura */
 }
 
@@ -40,19 +40,20 @@ body {
 
 .logo {
     width: 100%; /* Asegura que el logo se ajuste al ancho del sidebar */
-    max-width: 250px; /* Tamaño máximo del logo */
-    height: auto;
+    max-width: 290px; /* Tamaño máximo del logo */
+    height: auto; /* Mantiene proporciones */
     margin-bottom: 20px; /* Espacio debajo del logo */
 }
 
 .brand {
-    font-size: 2rem;
+    font-size: 2rem; /* Tamaño del texto de la marca */
     text-align: center; /* Centrar texto */
     margin-bottom: 2rem; /* Espacio debajo del título */
+    justify-content: center; /* Centrar horizontalmente */
 }
 
 .upperSide {
-    padding: 2.5rem;
+    padding: 2.5rem 0; /* Espaciado vertical ajustado */
     border-bottom: 1px solid rgb(100, 100, 100); /* Línea de separación */
 }
 
@@ -60,7 +61,7 @@ body {
     display: flex;
     align-items: center; /* Alinear verticalmente */
     justify-content: center; /* Centrar horizontalmente */
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.5rem; /* Espacio debajo del contenedor */
 }
 
 .miBtn {
@@ -68,9 +69,12 @@ body {
     color: white; /* Color del texto */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
-    padding: 0.5rem 1rem; /* Espaciado interno */
+    padding: 1rem; /* Espaciado interno igualado */
     display: flex; /* Usar flex para alinear ícono y texto */
     align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar texto horizontalmente */
+    width: 200px; /* Ancho fijo para todos los botones */
+    height: 50px; /* Altura fija para todos los botones */
     cursor: pointer; /* Cambiar cursor al pasar */
     transition: background-color 0.3s; /* Transición suave */
 }
@@ -79,17 +83,15 @@ body {
     background-color: #FFA500; /* Color de fondo al pasar el ratón */
 }
 
+
+.miBtn:hover {
+    background-color: #FFA500; /* Color de fondo al pasar el ratón */
+}
+
 .miBtn img {
-   height: 2rem;
-   padding-right: 1rem;
-   font-size: 1.5rem;
-   width: 25rem;
-   display:flex;
-   align-items: center;
-   justify-content: center;
-   margin: 0 auto;
-   margin-bottom: 3rem;
-   border-radius: 0.5rem;
+    width: 40px; /* Cambia este valor para ajustar el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-right: 1rem; /* Espacio entre el ícono y el texto */
 }
 
 .upperSideBottom {
@@ -97,19 +99,21 @@ body {
 }
 
 .query {
-    display: flex;
-    align-items: center;
-    background: transparent;
-    padding: 5rem;
-    width: 25rem;
-    margin: 1rem auto;
-    border-radius: 0.5rem;
-    border: 1px solid rgb(255,255,255);
-    color:rgb(255, 255, 255);
+    display: flex; /* Usar flex para el diseño */
+    align-items: center; /* Centrar verticalmente */
+    background: transparent; /* Fondo transparente */
+    padding: 1.5rem; /* Espaciado interno */
+    width: 20rem; /* Ancho fijo */
+    margin: 1rem auto; /* Centrar horizontalmente */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    border: 1px solid rgb(255, 255, 255); /* Borde blanco */
+    color: rgb(255, 255, 255); /* Color del texto */
 }
 
-.query:hover {
-    background-color: #0791BE; /* Color de fondo al pasar el ratón */
+.query > img {
+    margin-right: 1rem; /* Espacio entre imagen y texto */
+    object-fit: cover; /* Ajustar imagen */
+    height: 1.75rem; /* Altura de la imagen */
 }
 
 .lowerside {
@@ -117,21 +121,21 @@ body {
 }
 
 .socialNetworks {
-    display: flex;
+    display: flex; /* Usar flex para el diseño */
     justify-content: center; /* Centrar íconos */
     margin-top: 2rem; /* Espacio encima de los íconos */
 }
 
 .socialNetworks a {
-    display: flex; /* Cambiado a flex para centrar el ícono */
+    display: flex; /* Usar flex para centrar ícono */
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
     width: 40px; /* Ancho fijo */
     height: 40px; /* Altura fija */
     color: rgb(255, 255, 255); /* Color del ícono */
     background: #FFA500; /* Color de fondo de los íconos de redes sociales */
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
     margin: 0 5px; /* Espaciado entre los iconos */
 }
 
@@ -139,3 +143,5 @@ body {
     background: #0791BE; /* Color de fondo al pasar el ratón */
     color: #FFA500; /* Color del ícono al pasar el ratón */
 }
+
+/*Chatbot*/

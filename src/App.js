@@ -1,6 +1,9 @@
 import './App.css';
 import logoAmaguana from './assets/logoAmaguaña.png';
 import addBtn from './assets/add-30.png'; 
+import message from './assets/message.svg';
+import userIcon from './assets/icon-user.png';
+import userChat from './assets/nuevoGaditoChat.png';
 
 function App() {
   return (
@@ -11,10 +14,19 @@ function App() {
           <img src={logoAmaguana} alt="Logo" className="logo" />
           <div className="upperSideTop">
             <button className="miBtn">
-            <img src={addBtn} alt="new chat" className="addBtn" />Nuevo Chat</button>
+              <img src={addBtn} alt="Nuevo Chat" className="addBtn" />
+              Nuevo Chat
+            </button>
           </div>
           <div className="upperSideBottom">
-            <button className="query">¿Qué hace el presidente?</button>
+            <button className="query">
+              <img src={message} alt="Consulta" />
+              ¿Qué hace el presidente?
+            </button>
+            <button className="query">
+              <img src={message} alt="Consulta" />
+              ¿Qué hace el presidente?
+            </button>
           </div>
         </div>
         <div className="lowerside">
@@ -32,7 +44,19 @@ function App() {
         </div>
       </div>
       <div className="main">
-        {/* Aquí puedes agregar el contenido principal */}
+        <div className='chat'>
+          <img src={userIcon} alt="Icono de Usuario" className='user-icon' />
+          <p className='txt'>¡Hola! Bienvenido al chat del GAD Parroquial de Amaguaña. ¿En qué puedo ayudarte hoy?</p>
+        </div>
+        <div className='chat'>
+          <img src={userChat} alt="Chat de Usuario" className='user-icon' />
+          <p className='txt'>¡Hola! Bienvenido al chat del GAD Parroquial de Amaguaña. ¿En qué puedo ayudarte hoy?</p>
+        </div>
+      </div>
+      <div className='chatfooter'>
+        <div className='inp'>
+          <input type="text" placeholder='Envía un mensaje a ChatGadito'/><button className='send'></button>
+        </div>
       </div>
     </div>
   );
