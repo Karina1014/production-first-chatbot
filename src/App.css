@@ -43,14 +43,23 @@ body {
     max-width: 290px; 
     height: auto; 
     margin-bottom: 20px; 
+    font-family: 'Poppins', sans-serif; 
 }
 
 .brand {
     font-size: 2rem; 
     text-align: center; 
     margin-bottom: 2rem; 
+    font-family: 'Poppins', sans-serif; 
 }
 
+.brand1 {
+    font-size: 2rem; 
+    text-align: center; 
+    margin-bottom: 2rem; 
+    color: #FFA500;
+    font-family: 'Poppins', sans-serif; 
+}
 .upperSide {
     padding: 2.5rem 0; 
     border-bottom: 1px solid rgba(255, 255, 255); 
@@ -155,51 +164,84 @@ body {
 
 .chatImg {
     object-fit: cover;
-    width: 4rem; /* Aumentado para una mejor visualización */
-    height: 4rem; /* Agregado para mantener la proporción */
-    margin-right: 1.5rem; /* Espaciado reducido para mayor alineación */
-    border-radius: 50%; /* Cambiado a 50% para imágenes circulares */
+    width: 4rem; /* Tamaño optimizado */
+    height: 4rem; /* Mantiene proporción */
+    margin-right: 1.5rem; /* Espaciado adecuado */
+    border-radius: 50%; /* Imágenes circulares */
+    align-self: flex-start; /* Alinea la imagen del usuario o bot hacia arriba */
 }
 
 .chats {
-  
+    width: 100%;
+    max-width: 91rem;
+    min-height: calc(100vh - 20rem); /* Altura ajustada */
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Fondo sutil */
     border-radius: 12px; /* Bordes redondeados */
-            border: 2px solid transparent; /* Asegura que el borde tenga suficiente grosor para mostrar el gradiente */
-            border-image: linear-gradient(to right, #FFA500, #0791BE); /* Tomate y Celeste */
-            border-image-slice: 1; /* Asegura que el gradiente ocupe todo el borde */
-            padding: 16px; /* Espaciado interno */
+    position: relative; /* Necesario para el gradiente */
+    overflow: hidden; /* Para mantener el contenido dentro de los bordes redondeados */
+}
+
+.chats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit; /* El borde se hereda redondeado */
+    padding: 2px; /* Grosor del borde */
+    background: linear-gradient(to right, #FFA500, #0791BE); /* Gradiente */
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0); /* Para asegurar que el contenido se ajuste */
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+     
+}
+
+.chats .content {
+    position: relative;
+    z-index: 1;
 }
 
 /* Efecto hover para .chats */
 .chats:hover {
-    box-shadow: linear-gradient(to right, #FFA500, #0791BE); /* Tomate y Celeste */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
 }
 
 .chat {
-    margin: 1rem 0; /* Añadido margen entre mensajes */
-    padding: 1rem 1.5rem; /* Aumentado para mejorar el espaciado */
-    font-size: 1.1rem; /* Ajustado para mejor legibilidad */
+    margin: 1rem 0;
+    padding: 1rem 1.5rem;
+    font-size: 1.7rem; /* Tamaño ajustado del texto */
     display: flex;
     align-items: center;
     text-align: justify;
     background-color: transparent;
 }
 
-
+/* Mensajes del bot */
 .txtBot {
-    background-color: #FFB108; /* Color de fondo del mensaje del bot */
+    background-color: #FFB108; /* Fondo del mensaje del bot */
     display: inline-block;
     padding: 10px;
     border-radius: 5px;
-    max-width: 80%; /* Ajusta el ancho máximo del mensaje */
+    max-width: 80%; /* Ancho máximo */
+    word-wrap: break-word; /* Ajusta el texto largo */
 }
+
+/* Mensajes del usuario */
 .txtUser {
-    background-color: #0791BE; /* Color de fondo del mensaje del bot */
+    background-color: #0791BE; /* Fondo del mensaje del usuario */
     display: inline-block;
     padding: 10px;
     border-radius: 5px;
-    max-width: 80%; /* Ajusta el ancho máximo del mensaje */
+    max-width: 80%; /* Ancho máximo */
+    word-wrap: break-word; /* Ajusta el texto largo */
 }
+
+/* Footer del chat */
 .chatFooter {
     margin-top: auto;
     width: 100%;
@@ -210,33 +252,77 @@ body {
 }
 
 .inp {
-    color: rgb(7, 145, 190); /* Color de texto contrastante */
-    border: 2px solid rgb(7, 145, 190);/* Borde con color acento */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 10px;
-    font-size: 1em;
-    resize: none; /* Deshabilitar el redimensionado del textarea */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    max-width: 91rem; /* Igual al max-width de .chats */
+    display: flex;
+    align-items: center;
+    border: 2px solid rgb(7, 145, 190);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 
+.inp input {
+    flex: 1;
+    padding: 1rem;
+    border: none; /* Elimina el borde */
+    background: transparent; /* Fondo transparente */
+    color: #0791BE; /* Texto de color celeste */
+    font-size: 1.7rem; /* Tamaño ajustado del texto */
+}
 
 .inp input::placeholder {
-    color: rgb(7, 145, 190);
+    color: rgba(7, 145, 190, 0.5); /* Color celeste para el placeholder con opacidad */
 }
+
+.inp input:focus {
+    outline: none; /* Elimina el borde de enfoque */
+    box-shadow: none; /* Elimina la sombra en algunos navegadores */
+}
+
 
 .send {
     background: #FFA500;
     border: none;
     border-radius: 0.5rem;
-    padding: 0.75rem 1.5rem; /* Aumentado para mayor clicabilidad */
+    padding: 0.75rem 1.5rem;
     margin-left: 0.5rem;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 1.1rem; /* Ajustado para mantener la proporción con el input */
+    font-size: 1.1rem;
 }
 
 .send:hover {
     background: #0791BE;
 }
 
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 768px) {
+    .main {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .chats {
+        max-width: 100%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .inp {
+        width: 100%;
+    }
+
+    .send {
+        padding: 0.5rem 1rem;
+    }
+}
+
+.disclaimer {
+    margin-top: 12px;
+    color:#FFA500;
+    font-size: 0.7em;
+}

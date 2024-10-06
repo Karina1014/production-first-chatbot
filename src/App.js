@@ -44,7 +44,9 @@ function App() {
         </div>
       </div>
       <div className="main">
+      <span className="brand1">CHAT AMAGUAÑA</span>
     <div className='chats'>
+   
         <div className='chat'>
             <img className='chatImg' src={userChat} alt="Icono de Usuario" />
             <p className='txtBot'>¡Hola! Bienvenido al chat del GAD Parroquial de Amaguaña. ¿En qué puedo ayudarte hoy?</p>
@@ -61,7 +63,7 @@ function App() {
         <input type="text" placeholder='Envía un mensaje a ChatGadito' />
         <button className='send'>Enviar</button>
     </div>
-    <p>CHAT AMAGUAÑA</p>
+    <p className='disclaimer'>CHAT AMAGUAÑA</p>
 </div>
 
 </div>
