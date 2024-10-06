@@ -44,20 +44,28 @@ function App() {
         </div>
       </div>
       <div className="main">
+    <div className='chats'>
         <div className='chat'>
-          <img src={userIcon} alt="Icono de Usuario" className='user-icon' />
-          <p className='txt'>¡Hola! Bienvenido al chat del GAD Parroquial de Amaguaña. ¿En qué puedo ayudarte hoy?</p>
+            <img className='chatImg' src={userChat} alt="Icono de Usuario" />
+            <p className='txtBot'>¡Hola! Bienvenido al chat del GAD Parroquial de Amaguaña. ¿En qué puedo ayudarte hoy?</p>
         </div>
         <div className='chat'>
-          <img src={userChat} alt="Chat de Usuario" className='user-icon' />
-          <p className='txt'>¡Hola! Bienvenido al chat del GAD Parroquial de Amaguaña. ¿En qué puedo ayudarte hoy?</p>
+            <img className='chatImg bot' src={userIcon} alt="Chat de Usuario" />
+            <p className='txtUser'>
+                El párrafo generalmente lo definimos como un conjunto de oraciones escritas que comparten un tema y un contexto comunicativo. Por lo tanto, las escribimos en un orden, es decir, en secuencia. El párrafo también es considerado una de las unidades en que se puede dividir un texto escrito.
+            </p>
         </div>
-      </div>
-      <div className='chatfooter'>
-        <div className='inp'>
-          <input type="text" placeholder='Envía un mensaje a ChatGadito'/><button className='send'></button>
-        </div>
-      </div>
+    </div>
+    <div className='chatFooter'>
+    <div className='inp'>
+        <input type="text" placeholder='Envía un mensaje a ChatGadito' />
+        <button className='send'>Enviar</button>
+    </div>
+    <p>CHAT AMAGUAÑA</p>
+</div>
+
+</div>
+
     </div>
   );
 }
