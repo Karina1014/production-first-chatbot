@@ -6,3 +6,7 @@ npm install @google/generative-ai
 
 # Instalar dependencias necesarias (si aún no lo has hecho)
 npm install node-fetch
+
+# Instalar Pinecone
+npm install @pinecone-database/pinecone
+
