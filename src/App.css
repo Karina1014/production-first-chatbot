@@ -32,7 +32,7 @@ body {
     left: 0;
     display: flex;
     flex-direction: column; 
-    overflow-y: auto; 
+    overflow: hidden; /* Ocultar las barras de desplazamiento */
     border-right: 1px solid rgba(255, 255, 255); /* Línea de separación */
 }
 
@@ -45,12 +45,24 @@ body {
 }
 
 .brand {
-    font-size: 2rem; 
-    text-align: center; /* Centrar el texto */
-    margin-bottom: 2rem; 
-    font-family: 'Poppins', sans-serif; 
-    font-weight: bold; /* Establecer el texto como grueso */
+    font-size: 2rem; /* Tamaño de fuente */
+    text-align: center; /* Alinear texto al centro */
+    margin-bottom: 2rem; /* Espacio debajo del texto */
+    font-family: 'Poppins', sans-serif; /* Fuente */
+    font-weight: bold; /* Texto en negrita */
+   
 }
+
+.upperSide {
+    padding: 2.5rem 0; /* Espaciado superior e inferior */
+    border-bottom: 1px solid rgba(255, 255, 255); /* Línea de separación */
+    display: flex; /* Utiliza flexbox para la alineación */
+    flex-direction: column; /* Organiza elementos en columnas */
+    align-items: center; /* Centra los elementos horizontalmente */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho de la barra lateral */
+}
+
+
 
 .brand1 {
     font-size: 2rem; 
@@ -60,10 +72,8 @@ body {
     font-family: 'Poppins', sans-serif; 
     font-weight: bold; /* Establecer el texto como grueso */
 }
-.upperSide {
-    padding: 2.5rem 0; 
-    border-bottom: 1px solid rgba(255, 255, 255); 
-}
+
+
 
 .upperSideTop {
     display: flex;
@@ -86,16 +96,20 @@ body {
     cursor: pointer; 
     transition: background-color 0.3s; 
     margin-bottom: 1rem; 
+    font-weight: bold; /* Establecer el texto como grueso */
+    font-family: 'Poppins', sans-serif; 
 }
 
 .miBtn:hover {
     background-color: #FFA500; 
+    
 }
 
 .miBtn img {
     width: 40px; 
     height: auto; 
     margin-right: 1rem; 
+    
 }
 
 .upperSideBottom {
@@ -211,35 +225,62 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
 }
 
+/* Contenedor de mensajes */
+/* Contenedor de mensajes */
 .chat {
-    margin: 1rem 0;
-    padding: 1rem 1.5rem;
+    margin: 1rem 0; /* Espaciado vertical entre mensajes */
+    padding: 1rem 1.5rem; /* Espaciado interno */
     font-size: 1.7rem; /* Tamaño ajustado del texto */
-    display: flex;
-    align-items: center;
-    text-align: justify;
-    background-color: transparent;
+    display: flex; /* Usar flexbox para alinear */
+    align-items: center; /* Alinear verticalmente */
+    background-color: transparent; /* Fondo transparente */
 }
 
 /* Mensajes del bot */
 .txtBot {
     background-color: #FFB108; /* Fondo del mensaje del bot */
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
+    display: inline-block; /* Mantener el cuadro del mensaje */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
     max-width: 80%; /* Ancho máximo */
-    word-wrap: break-word; /* Ajusta el texto largo */
+    word-wrap: break-word; /* Ajustar texto largo */
+    font-weight: bold; /* Texto en negrita */
+    text-align: left; /* Alinear texto a la izquierda */
 }
+
 
 /* Mensajes del usuario */
 .txtUser {
     background-color: #0791BE; /* Fondo del mensaje del usuario */
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
+    display: inline-block; /* Mantener el cuadro del mensaje */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
     max-width: 80%; /* Ancho máximo */
-    word-wrap: break-word; /* Ajusta el texto largo */
+    overflow-wrap: break-word; /* Ajustar texto largo de forma correcta */
+    font-weight: bold; /* Texto en negrita */
+    margin-left: auto; /* Alinear a la derecha en el contenedor flex */
+    text-align: left; /* Alinear texto a la izquierda dentro del cuadro */
 }
+
+
+/* Imagen del bot */
+.chatImg-bot {
+    object-fit: cover; /* Ajustar la imagen */
+    width: 4rem; /* Tamaño de la imagen */
+    height: 4rem; /* Mantener proporción */
+    margin-right: 1.5rem; /* Espaciado a la derecha */
+    border-radius: 50%; /* Imagen circular */
+}
+
+/* Imagen del usuario */
+.chatImg {
+    object-fit: cover; /* Ajustar la imagen */
+    width: 4rem; /* Tamaño de la imagen */
+    height: 4rem; /* Mantener proporción */
+    margin-left: 1.5rem; /* Espaciado a la izquierda para separar del texto */
+    border-radius: 50%; /* Imagen circular */
+}
+
 
 /* Footer del chat */
 .chatFooter {
@@ -271,10 +312,12 @@ body {
     background: transparent; /* Fondo transparente */
     color: #0791BE; /* Texto de color celeste */
     font-size: 1.7rem; /* Tamaño ajustado del texto */
+    font-weight: bold; /* Establecer el texto como grueso */
 }
 
 .inp input::placeholder {
     color: rgba(7, 145, 190, 0.5); /* Color celeste para el placeholder con opacidad */
+    font-weight: bold; /* Establecer el texto como grueso */
 }
 
 .inp input:focus {
@@ -293,6 +336,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 1.1rem;
+    
 }
 
 .send:hover {
