@@ -44,29 +44,28 @@ function App() {
         </div>
       </div>
       <div className="main">
-      <span className="brand1">CHAT AMAGUAÑA</span>
-    <div className='chats'>
-   
-        <div className='chat'>
-            <img className='chatImg' src={userChat} alt="Icono de Usuario" />
-            <p className='txtBot'>¡Hola! Bienvenido al chat del GAD Parroquial de Amaguaña. ¿En qué puedo ayudarte hoy?</p>
+        <span className="brand1">CHAT AMAGUAÑA</span>
+          <div className='chats'>
+                <div className='chat'>
+                  <img className='chatImg' src={userChat} alt="Icono de Usuario" />
+                  <p className='txtBot'>¡Hola! Bienvenido al chat del GAD Parroquial de Amaguaña. ¿En qué puedo ayudarte hoy?</p>
+                </div>
+                <div className='chat'>
+                  <img className='chatImg bot' src={userIcon} alt="Chat de Usuario" />
+                  <p className='txtUser'>
+                      El párrafo generalmente lo definimos como un conjunto de oraciones escritas que comparten un tema y un contexto comunicativo. Por lo tanto, las escribimos en un orden, es decir, en secuencia. El párrafo también es considerado una de las unidades en que se puede dividir un texto escrito.
+                  </p>
+                </div>
+          </div>
+          <div className='chatFooter'>
+            <div className='inp'>
+                <input type="text" placeholder='Envía un mensaje a ChatGadito' />
+                <button className='send'>Enviar</button>
+            </div>
+            <p className='disclaimer'>CHAT AMAGUAÑA</p>
         </div>
-        <div className='chat'>
-            <img className='chatImg bot' src={userIcon} alt="Chat de Usuario" />
-            <p className='txtUser'>
-                El párrafo generalmente lo definimos como un conjunto de oraciones escritas que comparten un tema y un contexto comunicativo. Por lo tanto, las escribimos en un orden, es decir, en secuencia. El párrafo también es considerado una de las unidades en que se puede dividir un texto escrito.
-            </p>
-        </div>
-    </div>
-    <div className='chatFooter'>
-    <div className='inp'>
-        <input type="text" placeholder='Envía un mensaje a ChatGadito' />
-        <button className='send'>Enviar</button>
-    </div>
-    <p className='disclaimer'>CHAT AMAGUAÑA</p>
-</div>
 
-</div>
+      </div>
 
     </div>
   );

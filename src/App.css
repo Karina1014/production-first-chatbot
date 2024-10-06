@@ -22,7 +22,6 @@ body {
 }
 
 /* Barra lateral */
-/* Barra lateral */
 .sideBar {
     width: 250px; 
     height: 100vh; 
@@ -43,14 +42,14 @@ body {
     max-width: 290px; 
     height: auto; 
     margin-bottom: 20px; 
-    font-family: 'Poppins', sans-serif; 
 }
 
 .brand {
     font-size: 2rem; 
-    text-align: center; 
+    text-align: center; /* Centrar el texto */
     margin-bottom: 2rem; 
     font-family: 'Poppins', sans-serif; 
+    font-weight: bold; /* Establecer el texto como grueso */
 }
 
 .brand1 {
@@ -59,6 +58,7 @@ body {
     margin-bottom: 2rem; 
     color: #FFA500;
     font-family: 'Poppins', sans-serif; 
+    font-weight: bold; /* Establecer el texto como grueso */
 }
 .upperSide {
     padding: 2.5rem 0; 
@@ -146,7 +146,7 @@ body {
 
 .socialNetworks a:hover {
     background: #0791BE; 
-    color: #FFA500; 
+    color: #ffffff; 
 }
 
 /* Estilos del Chatbot */
