@@ -1,28 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import logoAmaguana from './assets/logoAmaguaña.png';
 
 function App() {
   return (
     <div className="App">
-        <div className="sidebar">
-            <div className="upperSide">
-                <div className="upperSideTop">
-                  <img src="" alt="" className="logo"></img>
-                  <span className="brand">CHAT AMAGUAÑA</span>
-                  
-                  <button className="miBtn"></button>
-                  <img src="" alt="" className="addBtn">Nuevo Chat</img>
+      <div className="sideBar">
+        <div className="upperSide">
+          <div className="upperSideTop">
+            <img src={logoAmaguana} alt="Logo" className="logo" />
+            <span className="brand">CHAT AMAGUAÑA</span>
 
-                </div>
-              
+            <button className="miBtn">Nuevo Chat</button>
+            
+            <div className="upperSideBottom">
+              <button className="query">Que hace el presidente?</button>
             </div>
-            <div className="lowerside">
-              
-              </div>
+          </div>
         </div>
-        <div className="main">
-              
+        <div className="lowerside">
+          {/* Aquí puedes agregar más contenido */}
         </div>
+      </div>
+      <div className="main">
+        {/* Aquí puedes agregar el contenido principal */}
+      </div>
     </div>
   );
 }
