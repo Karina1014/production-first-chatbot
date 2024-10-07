@@ -57,7 +57,6 @@ function App() {
             <p className='txtUser'>
                 El párrafo generalmente lo definimos como un conjunto de oraciones escritas que comparten un tema y un contexto comunicativo. Por lo tanto, las escribimos en un orden, es decir, en secuencia. El párrafo también es considerado una de las unidades en que se puede dividir un texto escrito.
             </p>
-            <img className='chatImg' src={userIcon} alt="Chat de Usuario" />
           </div>
         </div>
         <div className='chatFooter'>

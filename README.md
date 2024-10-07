@@ -1,6 +1,9 @@
 # production-first-chatbot
 Chatbot con React,Pinecone y Gemeni IA
 
+# Intalar Para las Variables de entorno
+npm install dotenv
+
 # Instalar Gemini
 npm install @google/generative-ai
 

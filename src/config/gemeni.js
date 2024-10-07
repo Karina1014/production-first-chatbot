@@ -1,41 +1,59 @@
-/*
- * Install the Generative AI SDK
- *
- * $ npm install @google/generative-ai
- */
+// node --version # Should be >= 18
+// npm install @google/generative-ai
 
-const {
+import {
     GoogleGenerativeAI,
     HarmCategory,
     HarmBlockThreshold,
-  } = require("@google/generative-ai");
+  } from "@google/generative-ai";
   
-  const apiKey = process.env.GEMINI_API_KEY;
-  const genAI = new GoogleGenerativeAI(apiKey);
+  const MODEL_NAME = "gemini-1.0-pro";
+  const API_KEY = "AIzaSyAWnm3H-6FSgzkiQ57bYxVEXZF2GW4CMHo"; // Asegúrate de que esta clave esté protegida
   
-  const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
-  });
+  async function runChat(prompt) {
+    const genAI = new GoogleGenerativeAI(API_KEY);
+    const model = genAI.getGenerativeModel({ model: MODEL_NAME });
   
-  const generationConfig = {
-    temperature: 1,
-    topP: 0.95,
-    topK: 64,
-    maxOutputTokens: 8192,
-    responseMimeType: "text/plain",
-  };
+    const generationConfig = {
+      temperature: 0.9,
+      topK: 1,
+      topP: 1,
+      maxOutputTokens: 2048,
+    };
   
-  async function run() {
-    const chatSession = model.startChat({
+    const safetySettings = [
+      {
+        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+      },
+    ];
+  
+    const chat = model.startChat({
       generationConfig,
-   // safetySettings: Adjust safety settings
-   // See https://ai.google.dev/gemini-api/docs/safety-settings
-      history: [
-      ],
+      safetySettings,
+      history: [],
     });
   
-    const result = await chatSession.sendMessage("INSERT_INPUT_HERE");
-    console.log(result.response.text());
+    try {
+      const result = await chat.sendMessage(prompt);
+      const response = result.response;
+      console.log(response.text()); // Asegúrate de que `response.text` sea un método válido
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
   }
   
-  run();
+  export default runChat;
+  
