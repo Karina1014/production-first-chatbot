@@ -1,11 +1,36 @@
 import './App.css';
+import { useState, useEffect } from "react"; 
+import { useMyContext } from './context/context'; 
 import logoAmaguana from './assets/logoAmaguaña.png';
-import addBtn from './assets/add-30.png'; 
+import addBtn from './assets/add-30.png';
 import message from './assets/message.svg';
-import userIcon from './assets/icon-user.png';
 import userChat from './assets/nuevoGaditoChat.png';
 
 function App() {
+  const [prompt, setPrompt] = useState(""); // Estado para el input del usuario
+  const { onSent, response, error } = useMyContext(); // Usa el contexto
+  const [chats, setChats] = useState([]); // Estado para almacenar los mensajes de chat
+  const [loading, setLoading] = useState(false); // Estado para manejar la carga
+
+  // Efecto para manejar la respuesta del bot
+  useEffect(() => {
+    // Verifica si hay una respuesta y si no está vacía
+    if (response && response.trim() !== "") {
+      setChats((prevChats) => [...prevChats, { sender: 'bot', text: response }]); // Agrega la respuesta del bot al estado
+      setLoading(false); // Deja de mostrar el loading
+    }
+  }, [response]); // Se ejecuta cada vez que 'response' cambia
+
+  // Función para manejar el envío del mensaje
+  const handleSend = () => {
+    if (prompt.trim() !== "") {
+      setChats((prevChats) => [...prevChats, { sender: 'user', text: prompt }]); // Agrega el mensaje del usuario al estado
+      onSent(prompt); // Envía el mensaje a través del contexto
+      setPrompt(""); // Limpia el input después de enviar
+      setLoading(true); // Muestra el loading
+    }
+  };
+
   return (
     <div className="App">
       <div className="sideBar">
@@ -47,22 +72,31 @@ function App() {
       <div className="main">
         <span className="brand1">CHAT AMAGUAÑA</span>
         <div className='chats'>
-          <div className='chat'>
-            <img className='chatImg-bot' src={userChat} alt="Icono de Usuario" />
-            <p className='txtBot'>
-                ¡Hola! Bienvenido al chat del GAD Parroquial de Amaguaña. ¿En qué puedo ayudarte hoy?
-            </p>
-          </div>
-          <div className='chat'>
-            <p className='txtUser'>
-                El párrafo generalmente lo definimos como un conjunto de oraciones escritas que comparten un tema y un contexto comunicativo. Por lo tanto, las escribimos en un orden, es decir, en secuencia. El párrafo también es considerado una de las unidades en que se puede dividir un texto escrito.
-            </p>
-          </div>
+          {chats.map((chat, index) => (
+            <div key={index} className={`chat ${chat.sender}`}>
+              {chat.sender === 'user' ? (
+                <p className='txtUser'>{chat.text}</p>
+              ) : (
+                <>
+                  <img className='chatImg-bot' src={userChat} alt="Icono de Usuario" />
+                  <p className='txtBot'>{chat.text}</p>
+                </>
+              )}
+            </div>
+          ))}
+          {loading && <p className='txtBot'>Cargando...</p>} {/* Mensaje de carga mientras espera respuesta */}
+          {error && <p className='txtBot error'>{error}</p>} {/* Muestra el error si existe */}
         </div>
         <div className='chatFooter'>
           <div className='inp'>
-            <input type="text" placeholder='Envía un mensaje a ChatGadito' />
-            <button className='send'>Enviar</button>
+            <input 
+              type="text" 
+              placeholder='Envía un mensaje a ChatGadito' 
+              value={prompt} 
+              onChange={(e) => setPrompt(e.target.value)} // Actualiza el estado al escribir
+              onKeyPress={(e) => { if (e.key === 'Enter') handleSend(); }} // Permite enviar al presionar "Enter"
+            />
+            <button className='send' onClick={handleSend}>Enviar</button>
           </div>
           <p className='disclaimer'>CHAT AMAGUAÑA</p>
         </div>
